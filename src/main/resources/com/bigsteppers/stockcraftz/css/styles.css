@@ -1,0 +1,749 @@
+/* General Reset */
+* {
+    -fx-margin: 0;
+    -fx-padding: 0;
+    -fx-box-sizing: border-box;
+}
+
+/* Root and Scene */
+.root {
+    -fx-font-family: "VT323";
+    -fx-background-color: red;
+    -fx-text-fill: #ffffff;
+    /* Tiled SVG background */
+    /*-fx-background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath fill='%23000000' fill-opacity='0.1' d='M0 0h4v4H0V0zm4 4h4v4H4V4zm4-4h4v4H8V0zm8 0h4v4h-4V0zm4 4h4v4h-4V4zm-4 4h4v4h-4V8zm8-8h4v4h-4V0zm0 8h4v4h-4V8zm0 8h4v4h-4v-4zm-8 0h4v4h-4v-4zm-8 0h4v4H8v-4zm-4 4h4v4H4v-4zm0-8h4v4H4V8zm8 0h4v4H12V8zm-8-8h4v4H4V0z'/%3E%3C/svg%3E");*/
+    /*-fx-background-repeat: repeat;*/
+    /*-fx-background-size: 32 32;*/
+    /*-fx-background-position: 0 0;*/
+}
+
+/* Page Container */
+.page {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-border-color: #000000;
+    -fx-border-width: 4;
+    -fx-padding: 20;
+    -fx-border-radius: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 0);
+    -fx-opacity: 0;
+    -fx-transition: -fx-opacity 0.5s ease, -fx-translate-x 0.5s ease;
+}
+
+.page.active {
+    -fx-opacity: 1;
+    -fx-translate-x: 0;
+}
+
+/* Pixel Border */
+.pixel-border {
+    -fx-padding: 20;
+    -fx-background-color: transparent;
+    -fx-border-color: #000000;
+    -fx-border-width: 4;
+    -fx-background-insets: 8;
+    -fx-background-radius: 8;
+    -fx-effect: innershadow(gaussian, #ffdd00, 10, 0, 0, 0);
+}
+
+/* Headings */
+.h1 {
+    -fx-font-size: 64px;
+    -fx-text-fill: #ffdd00;
+    -fx-effect: dropshadow(one-pass-box, #000000, 2, 1.0, 2, 2);
+    -fx-letter-spacing: 2px;
+}
+
+.h2 {
+    -fx-font-size: 28px;
+    -fx-text-fill: #ffdd00;
+    -fx-effect: dropshadow(one-pass-box, #000000, 2, 1.0, 2, 2);
+}
+
+/* Input Group */
+.input-group {
+    -fx-alignment: center-left;
+    -fx-spacing: 5;
+}
+
+.input-group Label {
+    -fx-font-size: 20px;
+    -fx-text-fill: #ffdd00;
+    -fx-effect: dropshadow(one-pass-box, #000000, 1, 1.0, 1, 1);
+}
+
+.text-field, .password-field {
+    -fx-background-color: #000000;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 20px;
+    -fx-padding: 10;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #ffdd00;
+}
+
+/* Search Box */
+.search-box {
+    -fx-alignment: center;
+    -fx-spacing: 0;
+}
+
+.search-box .text-field {
+    -fx-pref-width: Infinity;
+    -fx-padding-right: 40;
+}
+
+.search-icon {
+    -fx-translate-y: -50%;
+    -fx-translate-x: -30;
+    -fx-cursor: hand;
+}
+
+/* Buttons */
+.btn {
+    -fx-background-color: #5b8731;
+    -fx-border-color: transparent transparent #3b5b21 transparent;
+    -fx-border-width: 0 0 4 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "VT323";
+    -fx-font-size: 22px;
+    -fx-text-transform: uppercase;
+    -fx-padding: 12 24;
+    -fx-min-width: 150px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 2, 1.0, 2, 2);
+}
+
+.btn:hover {
+    -fx-background-color: #6b9741;
+    -fx-translate-y: -2;
+}
+
+.btn:pressed {
+    -fx-translate-y: 2;
+    -fx-border-width: 0 0 2 0;
+}
+
+.btn.secondary {
+    -fx-background-color: #7e7e7e;
+    -fx-border-color: transparent transparent #555555 transparent;
+}
+
+.btn.secondary:hover {
+    -fx-background-color: #9e9e9e;
+}
+
+.btn.danger {
+    -fx-background-color: #a52a2a;
+    -fx-border-color: transparent transparent #8b0000 transparent;
+}
+
+.btn.danger:hover {
+    -fx-background-color: #c52a2a;
+}
+
+.btn.small {
+    -fx-padding: 6 12;
+    -fx-font-size: 16px;
+}
+
+.login-btn-group {
+    -fx-content-display: flex;
+    -fx-alignment: center;
+    -fx-spacing: 10;
+    -fx-pref-width: 100%;
+    -fx-start-margin: 50px;
+}
+
+/* Menu Items */
+.menu-item {
+    -fx-background-color: #5b8731;
+    -fx-border-color: transparent transparent #3b5b21 transparent;
+    -fx-border-width: 0 0 4 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "VT323";
+    -fx-font-size: 24px;
+    -fx-text-transform: uppercase;
+    -fx-padding: 15;
+    -fx-cursor: hand;
+    -fx-pref-width: 400px;
+}
+
+.menu-item:hover {
+    -fx-background-color: #6b9741;
+    -fx-translate-y: -2;
+}
+
+.menu-item:pressed {
+    -fx-translate-y: 2;
+    -fx-border-width: 0 0 2 0;
+}
+
+/* Navigation Bar */
+.nav-bar {
+    -fx-spacing: 5;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.nav-btn {
+    -fx-background-color: #5b8731;
+    -fx-border-color: transparent transparent #3b5b21 transparent;
+    -fx-border-width: 0 0 3 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "VT323";
+    -fx-font-size: 18px;
+    -fx-text-transform: uppercase;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(one-pass-box, rgba(0, 0, 0, 0.5), 1, 1.0, 1, 1);
+    -fx-max-width: Infinity;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #6b9741;
+}
+
+.nav-btn.active {
+    -fx-background-color: #ffdd00;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent transparent #e5c700 transparent;
+}
+
+/* Stats Container */
+.stats-container {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+    -fx-wrap-text: true;
+}
+
+.stat-box {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-border-color: #555555;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    -fx-min-width: 150;
+    -fx-alignment: center;
+}
+
+.stat-value {
+    -fx-font-size: 32px;
+    -fx-text-fill: #ffdd00;
+}
+
+.stat-label {
+    -fx-font-size: 18px;
+    -fx-text-fill: #ffffff;
+}
+
+/* Chart */
+.chart-wrapper {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-border-color: #555555;
+    -fx-border-width: 2;
+    -fx-padding: 15;
+    /*-fx-min-height: 1;*/
+}
+
+.chart {
+    /*-fx-background-color: rgba(0, 0, 0, 0.5);*/
+    /*-fx-border-color: #555555;*/
+    /*-fx-border-width: 2;*/
+    /*-fx-padding: 15;*/
+    /*-fx-min-height: 150;*/
+}
+
+.chart-bar {
+    -fx-background-color: #5b8731;
+}
+
+/* Inventory Grid */
+.inventory-grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+.inventory-item {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-border-color: #555555;
+    -fx-border-width: 2;
+    -fx-padding: 10;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+
+.inventory-item:hover {
+    -fx-border-color: #ffdd00;
+    -fx-translate-y: -2;
+}
+
+.inventory-item:hover .item-actions {
+    -fx-visible: true;
+}
+
+.item-icon {
+    -fx-image-rendering: pixelated;
+}
+
+.item-name {
+    -fx-font-size: 16px;
+    -fx-text-fill: #ffffff;
+}
+
+.item-quantity {
+    -fx-font-size: 14px;
+    -fx-text-fill: #aaaaaa;
+}
+
+.item-actions {
+    -fx-background-color: rgba(0, 0, 0, 0.8);
+    -fx-alignment: center;
+    -fx-spacing: 5;
+}
+
+/* Crafting UI */
+.crafting-container {
+    -fx-spacing: 10;
+    -fx-alignment: center;
+}
+
+.crafting-grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+    -fx-pref-width: 48%;
+}
+
+.crafting-slot {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-border-color: #555555;
+    -fx-border-width: 2;
+    -fx-alignment: center;
+    -fx-cursor: hand;
+}
+
+.crafting-slot:hover {
+    -fx-border-color: #ffdd00;
+}
+
+.crafting-arrow {
+    -fx-font-size: 36px;
+    -fx-text-fill: #ffdd00;
+    -fx-pref-width: 4%;
+}
+
+.crafting-result {
+    -fx-background-color: rgba(0, 0, 0, 0.5);
+    -fx-border-color: #555555;
+    -fx-border-width: 2;
+    -fx-alignment: center;
+    -fx-pref-width: 48%;
+}
+
+/* Crafting Specific Styles */
+.crafting-container {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-area {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-grid {
+    -fx-hgap: 10;
+    -fx-vgap: 10;
+}
+
+.crafting-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-min-width: 80;
+    -fx-min-height: 80;
+    -fx-alignment: CENTER;
+}
+
+.crafting-slot:hover {
+    -fx-border-color: #ffdd00;
+}
+
+.crafting-slot.filled {
+    -fx-border-color: #00ff88;
+}
+
+.crafting-arrow {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 40;
+    -fx-text-fill: #ffdd00;
+}
+
+.result-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #ffdd00;
+    -fx-border-width: 3;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+    -fx-alignment: CENTER;
+}
+
+.result-label {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 18;
+    -fx-text-fill: #ffdd00;
+}
+
+.crafting-actions {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-info {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-padding: 15;
+}
+
+.h3 {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 22;
+    -fx-text-fill: #ffdd00;
+}
+
+.info-text {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 18;
+    -fx-text-fill: #ffffff;
+}
+
+.recipe-list {
+    -fx-padding: 0 0 0 10;
+}
+
+.recipe-item {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 16;
+    -fx-text-fill: #cccccc;
+}
+
+.recipe-item::before {
+    -fx-content: "• ";
+    -fx-text-fill: #ffdd00;
+}
+
+.inventory-container {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 10;
+}
+
+.inventory-title {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 24;
+    -fx-text-fill: #ffdd00;
+}
+
+.inventory-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-alignment: CENTER;
+}
+
+.inventory-slot:hover {
+    -fx-border-color: #ffdd00;
+}
+
+.inventory-slot.filled {
+    -fx-border-color: #00ff88;
+}
+
+.item-icon {
+    -fx-background-color: #00ff88;
+    -fx-background-radius: 4;
+}
+
+.item-count {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 14;
+    -fx-padding: 2 5;
+    -fx-background-radius: 3;
+    -fx-alignment: BOTTOM_RIGHT;
+}
+
+/* Crafting Specific Styles */
+.crafting-container {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-area {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-grid {
+    -fx-hgap: 10;
+}
+
+.crafting-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-min-width: 80;
+    -fx-min-height: 80;
+    -fx-alignment: CENTER;
+}
+
+.crafting-slot:hover {
+    -fx-border-color: #ffdd00;
+}
+
+.crafting-slot.filled {
+    -fx-border-color: #00ff88;
+}
+
+.crafting-arrow {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 40;
+    -fx-text-fill: #ffdd00;
+}
+
+.result-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #ffdd00;
+    -fx-border-width: 3;
+    -fx-min-width: 100;
+    -fx-min-height: 100;
+    -fx-alignment: CENTER;
+}
+
+.result-label {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 18;
+    -fx-text-fill: #ffdd00;
+}
+
+.crafting-actions {
+    -fx-alignment: CENTER;
+    -fx-spacing: 20;
+}
+
+.crafting-info {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-padding: 15;
+}
+
+.h3 {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 22;
+    -fx-text-fill: #ffdd00;
+}
+
+.info-text {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 18;
+    -fx-text-fill: #ffffff;
+}
+
+.recipe-list {
+    -fx-padding: 0 0 0 10;
+}
+
+.recipe-item {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 16;
+    -fx-text-fill: #cccccc;
+}
+
+.recipe-item::before {
+    -fx-content: "• ";
+    -fx-text-fill: #ffdd00;
+}
+
+.inventory-container {
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 10;
+}
+
+.inventory-title {
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 24;
+    -fx-text-fill: #ffdd00;
+}
+
+.inventory-slot {
+    -fx-background-color: #2a2a2a;
+    -fx-border-color: #555555;
+    -fx-border-width: 3;
+    -fx-min-width: 60;
+    -fx-min-height: 60;
+    -fx-alignment: CENTER;
+}
+
+.inventory-slot:hover {
+    -fx-border-color: #ffdd00;
+}
+
+.inventory-slot.filled {
+    -fx-border-color: #00ff88;
+}
+
+.item-icon {
+    -fx-background-color: #00ff88;
+    -fx-background-radius: 4;
+}
+
+.item-count {
+    -fx-background-color: rgba(0, 0, 0, 0.7);
+    -fx-text-fill: #ffffff;
+    -fx-font-family: 'VT323', monospace;
+    -fx-font-size: 14;
+    -fx-padding: 2 5;
+    -fx-background-radius: 3;
+    -fx-alignment: BOTTOM_RIGHT;
+}
+
+/* Leaderboard Table */
+.leaderboard-table {
+    -fx-border-collapse: collapse;
+    -fx-min-width: 100%;
+}
+
+.leaderboard-table .column-header {
+    -fx-background-color: #ffdd00;
+    -fx-text-fill: #ffdd00;
+    -fx-font-size: 20px;
+    -fx-border-color: #555555;
+    -fx-border-width: 0 0 2 0;
+}
+
+.leaderboard-table .table-row-cell:even {
+    -fx-background-color: #262626;
+    -fx-text-fill: red;
+}
+
+.leaderboard-table .table-row-cell:odd {
+    -fx-background-color: #1A1A1A;
+    -fx-text-fill: red;
+}
+
+.table-view .table-row-cell {
+    -fx-text-fill: red;
+}
+
+
+.leaderboard-table .table-row-cell:hover {
+    -fx-background-color: rgba(255, 221, 0, 0.1);
+}
+
+/* Marketplace Filters */
+.marketplace-filters {
+    -fx-spacing: 5;
+    -fx-alignment: center;
+}
+
+.filter-btn {
+    -fx-background-color: #7e7e7e;
+    -fx-border-color: transparent transparent #555555 transparent;
+    -fx-border-width: 0 0 3 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "VT323";
+    -fx-font-size: 16px;
+    -fx-padding: 8 12;
+    -fx-cursor: hand;
+    -fx-max-width: Infinity;
+}
+
+.filter-btn:hover {
+    -fx-background-color: #9e9e9e;
+}
+
+.filter-btn.active {
+    -fx-background-color: #ffdd00;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent transparent #e5c700 transparent;
+}
+
+/* Pagination */
+.pagination {
+    -fx-spacing: 5;
+    -fx-alignment: center;
+}
+
+.pagination-btn {
+    -fx-background-color: #5b8731;
+    -fx-border-color: transparent transparent #3b5b21 transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-text-fill: #ffffff;
+    -fx-font-family: "VT323";
+    -fx-font-size: 16px;
+    -fx-padding: 5 10;
+    -fx-cursor: hand;
+}
+
+.pagination-btn.active {
+    -fx-background-color: #ffdd00;
+    -fx-text-fill: #000000;
+    -fx-border-color: transparent transparent #e5c700 transparent;
+}
+
+/* ScrollPane scrollbar styling */
+.scroll-pane {
+    -fx-background-color: transparent; /* Matches inventory background */
+}
+
+/* Vertical scrollbar */
+.scroll-pane .scroll-bar:vertical {
+    -fx-background-color: #ffdd00; /* Navy blue: hsl(217, 91%, 11%) */
+    -fx-background-insets: 0;
+    -fx-padding: 2;
+}
+
+/* Scrollbar thumb */
+.scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #ffdd00; /* Light blue: hsl(207, 82%, 66%) */
+    -fx-background-radius: 4; /* Rounded edges */
+    -fx-border-color: transparent;
+    -fx-border-radius: 4;
+}
+
+/* Scrollbar track */
+.scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #FFDD0019; /* Navy blue */
+    -fx-background-radius: 0;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .pixel-border {
+        -fx-max-width: 95%;
+    }
+
+    .nav-btn {
+        -fx-font-size: 14px;
+        -fx-padding: 6 8;
+    }
+
+    .crafting-container {
+        -fx-orientation: vertical;
+    }
+
+    .crafting-grid, .crafting-result {
+        -fx-pref-width: 100%;
+    }
+
+    .crafting-arrow {
+        -fx-pref-width: 100%;
+        -fx-pref-height: 40;
+        -fx-rotate: 90;
+    }
+}

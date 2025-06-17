@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="leaderboardPage" styleClass="page, active"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="com.bigsteppers.stockcraftz.controllers.LeaderboardController">
+    <center>
+        <VBox styleClass="pixel-border" alignment="CENTER" spacing="15" maxWidth="800">
+            <fx:include fx:id="navbar" source="navbar.fxml"/>
+            <Label text="LEADERBOARD" styleClass="h1"/>
+            <TableView fx:id="leaderboardTable" styleClass="leaderboard-table">
+                <columns>
+                    <TableColumn fx:id="rankColumn" text="RANK" prefWidth="120"/>
+                    <TableColumn fx:id="playerColumn" text="PLAYER" prefWidth="150"/>
+                    <TableColumn fx:id="portfolioColumn" text="PORTFOLIO VALUE" prefWidth="180"/>
+                    <TableColumn fx:id="craftedColumn" text="CRAFTED ITEMS" prefWidth="200"/>
+                </columns>
+            </TableView>
+            <HBox fx:id="paginationBox" styleClass="pagination" spacing="5"/>
+            <HBox styleClass="stats-container" spacing="10">
+                <VBox styleClass="stat-box">
+                    <Label fx:id="percentileLabel" text="TOP 15%" styleClass="stat-value"/>
+                    <Label text="PERCENTILE" styleClass="stat-label"/>
+                </VBox>
+                <VBox styleClass="stat-box">
+                    <Label fx:id="weeklyChangeLabel" text="+5" styleClass="stat-value"/>
+                    <Label text="WEEKLY CHANGE" styleClass="stat-label"/>
+                </VBox>
+                <VBox styleClass="stat-box">
+                    <Label fx:id="nextRankLabel" text="3,200" styleClass="stat-value"/>
+                    <Label text="TO NEXT RANK" styleClass="stat-label"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="dashboardPage" styleClass="page, active"
+            xmlns="http://javafx.com/javafx/17.0.12"
+            fx:controller="com.bigsteppers.stockcraftz.controllers.DashboardController">
+    <center>
+        <VBox fx:id="rootNode" alignment="CENTER" maxWidth="800" spacing="15" styleClass="pixel-border">
+            <fx:include fx:id="navbar" source="navbar.fxml"/>
+            <Label styleClass="h1" text="DASHBOARD"/>
+            <HBox spacing="10" styleClass="stats-container">
+                <VBox styleClass="stat-box">
+                    <Label fx:id="balanceLabel" styleClass="stat-value" text="1,250"/>
+                    <Label styleClass="stat-label" text="GOLD"/>
+                </VBox>
+                <VBox styleClass="stat-box">
+                    <Label fx:id="numRawMaterialsLabel" styleClass="stat-value" text="24"/>
+                    <Label styleClass="stat-label" text="RAW MATERIALS"/>
+                </VBox>
+                <VBox styleClass="stat-box">
+                    <Label fx:id="numCraftedItemsLabel" styleClass="stat-value" text="12"/>
+                    <Label styleClass="stat-label" text="CRAFTED ITEMS"/>
+                </VBox>
+                <VBox styleClass="stat-box">
+                    <Label fx:id="rankLabel" styleClass="stat-value" text="#42"/>
+                    <Label styleClass="stat-label" text="RANK"/>
+                </VBox>
+            </HBox>
+
+            <VBox alignment="center" spacing="100">
+                <!--                <VBox alignment="center">-->
+                <!--                    <Label text="PORTFOLIO VALUE" styleClass="h2"/>-->
+                <!--                    <Pane fx:id="chartPane"-->
+                <!--                    />-->
+                <!--                </VBox>-->
+
+                <VBox alignment="center">
+                    <Label styleClass="h2" text="RECENT ACTIVITY"/>
+                    <HBox managed="false" styleClass="search-box" visible="false">
+                        <TextField fx:id="activitySearch" prefWidth="Infinity" promptText="Search activities..."/>
+                    </HBox>
+                    <TableView fx:id="activityTable" styleClass="leaderboard-table">
+                        <columns>
+                            <TableColumn fx:id="actionColumn" prefWidth="147.0" text="ACTION"/>
+                            <TableColumn fx:id="itemColumn" prefWidth="148.0" text="ITEM"/>
+                            <TableColumn fx:id="amountColumn" prefWidth="198.0" text="AMOUNT"/>
+                            <TableColumn fx:id="timeColumn" prefWidth="250.0" text="TIME"/>
+                        </columns>
+                    </TableView>
+                    <HBox fx:id="paginationBox" spacing="5" styleClass="pagination"/>
+                    <HBox alignment="center" spacing="50">
+                        <Button onAction="#navigateToRawMaterials" styleClass="btn" text="VIEW INVENTORY"/>
+                        <Button onAction="#navigateToMarketplace" styleClass="btn" text="MARKETPLACE"/>
+                        <Button onAction="#navigateToCrafting" styleClass="btn, secondary" text="CRAFT ITEMS"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

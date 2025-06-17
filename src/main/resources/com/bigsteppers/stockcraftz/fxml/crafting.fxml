@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="craftingPage" styleClass="page, active"
+            xmlns="http://javafx.com/javafx/21"
+            fx:controller="com.bigsteppers.stockcraftz.controllers.CraftingController">
+    <center>
+        <VBox fx:id="rootNode" styleClass="pixel-border" alignment="CENTER" spacing="15" maxWidth="800">
+            <fx:include fx:id="navbar" source="navbar.fxml"/>
+            <Label text="CRAFTING STATION" styleClass="h1"/>
+            <VBox styleClass="crafting-container" spacing="20">
+                <HBox styleClass="crafting-area" alignment="CENTER" spacing="20">
+                    <GridPane fx:id="craftingGrid" styleClass="crafting-grid" hgap="10">
+                        <VBox fx:id="slot1" styleClass="crafting-slot"/>
+                        <VBox fx:id="slot2" styleClass="crafting-slot" GridPane.columnIndex="1"/>
+                        <VBox fx:id="slot3" styleClass="crafting-slot" GridPane.columnIndex="2"/>
+                    </GridPane>
+                    <Label text="→" styleClass="crafting-arrow"/>
+                    <Pane fx:id="resultSlot" styleClass="result-slot">
+                        <Label text="Result" styleClass="result-label" layoutX="-30" layoutY="-25"/>
+                        <!--                        <ImageView fx:id="resultIcon" fitWidth="60" fitHeight="60"/>-->
+                    </Pane>
+                </HBox>
+                <HBox styleClass="crafting-actions" spacing="20">
+                    <Button fx:id="clearButton" text="CLEAR" styleClass="btn" onAction="#clearCraftingGrid"/>
+                    <Button fx:id="craftButton" text="CRAFT ITEM" styleClass="btn, disabled" disable="true"
+                            onAction="#craftItem"/>
+                </HBox>
+
+                <VBox styleClass="crafting-info" spacing="10">
+                    <Label text="CRAFTING GUIDE" styleClass="h3"/>
+                    <Label text="Use the correct combination of raw materials to craft powerful tools and weapons. Each recipe must be followed exactly. Drag the required items into the crafting area and click 'Craft' to create the item."
+                           styleClass="info-text" wrapText="true"/>
+
+
+                    <HBox spacing="40">
+                        <!-- Left Column -->
+                        <VBox styleClass="recipe-list" spacing="5">
+                            <Label text="• IRON_ORE + COAL = STEEL_AXE" styleClass="recipe-item"/>
+                            <Label text="• IRON_ORE + COAL + COPPER_INGOT = IRON_PICKAXE" styleClass="recipe-item"/>
+                            <Label text="• WOOD + COAL = WOODEN_SHOVEL" styleClass="recipe-item"/>
+                            <Label text="• DIAMOND + IRON_ORE = DIAMOND_SWORD" styleClass="recipe-item"/>
+                            <Label text="• STICK + COAL = TORCH" styleClass="recipe-item"/>
+                            <Label text="• GOLD_ORE + COAL = GOLD_INGOT" styleClass="recipe-item"/>
+                            <Label text="• SAND + CLAY = BRICK_BLOCK" styleClass="recipe-item"/>
+                            <Label text="• COBBLESTONE + COAL = STONE_BRICK" styleClass="recipe-item"/>
+                        </VBox>
+
+                        <!-- Right Column -->
+                        <VBox styleClass="recipe-list" spacing="5">
+                            <Label text="• FEATHER + STICK + INK_SAC = WRITING_QUILL" styleClass="recipe-item"/>
+                            <Label text="• LEATHER + IRON_INGOT = ARMOR_PLATE" styleClass="recipe-item"/>
+                            <Label text="• WOOD + IRON_INGOT = SHIELD" styleClass="recipe-item"/>
+                            <Label text="• WOOD + STRING = BOW" styleClass="recipe-item"/>
+                            <Label text="• FLINT + STICK + FEATHER = ARROW" styleClass="recipe-item"/>
+                            <Label text="• GLASS + REDSTONE = LENS" styleClass="recipe-item"/>
+                            <Label text="• OBSIDIAN + DIAMOND = PORTAL_CORE" styleClass="recipe-item"/>
+                            <Label text="• COAL + IRON_ORE + REDSTONE = POWER_CORE" styleClass="recipe-item"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <VBox styleClass="inventory-container" spacing="10">
+                    <Label text="RAW MATERIALS" styleClass="inventory-title"/>
+                    <GridPane fx:id="inventoryGrid" styleClass="inventory-grid" hgap="10" vgap="10"/>
+                </VBox>
+            </VBox>
+            <HBox spacing="50" alignment="center">
+                <Button text="VIEW INVENTORY" styleClass="btn" onAction="#navigateToRawMaterials"/>
+                <Button text="MARKETPLACE" styleClass="btn" onAction="#navigateToMarketplace"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

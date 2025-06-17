@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox fx:id="navBar" styleClass="nav-bar" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bigsteppers.stockcraftz.controllers.NavbarController">
+    <Button fx:id="menuButton" text="MENU" styleClass="nav-btn" onAction="#navigateToMenu"/>
+    <Button fx:id="dashboardButton" text="DASHBOARD" styleClass="nav-btn" onAction="#navigateToDashboard"/>
+    <Button fx:id="rawMaterialsButton" text="RAW MATERIALS" styleClass="nav-btn" onAction="#navigateToRawMaterials"/>
+    <Button fx:id="craftedItemsButton" text="CRAFTED ITEMS" styleClass="nav-btn" onAction="#navigateToCraftedItems"/>
+    <Button fx:id="craftingButton" text="CRAFTING" styleClass="nav-btn" onAction="#navigateToCrafting"/>
+    <Button fx:id="leaderboardButton" text="LEADERBOARD" styleClass="nav-btn" onAction="#navigateToLeaderboard"/>
+    <Button fx:id="marketplaceButton" text="MARKETPLACE" styleClass="nav-btn" onAction="#navigateToMarketplace"/>
+</HBox>

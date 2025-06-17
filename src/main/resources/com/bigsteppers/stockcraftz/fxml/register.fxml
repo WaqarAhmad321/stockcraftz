@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.layout.HBox?>
+<BorderPane fx:id="registerPage" styleClass="page, active" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bigsteppers.stockcraftz.controllers.RegisterController">
+    <center>
+        <VBox styleClass="pixel-border" alignment="CENTER" spacing="15" maxWidth="800">
+            <!--            <ImageView fitWidth="200" fitHeight="80">-->
+            <!--                <image>-->
+            <!--                    <Image url="@/com/bigsteppers/stockcraftz/images/logo.png"/>-->
+            <!--                </image>-->
+            <!--            </ImageView>-->
+
+            <Label text="STOCKCRAFTZ" styleClass="h1"/>
+            <VBox fx:id="registerForm" spacing="36">
+                <VBox spacing="10">
+                <VBox styleClass="input-group">
+                    <Label text="NEW USERNAME"/>
+                    <TextField fx:id="usernameField" promptText="Choose a username"/>
+                </VBox>
+                <VBox styleClass="input-group">
+                    <Label text="NEW PASSWORD" />
+                    <PasswordField fx:id="passwordField" promptText="Choose a password"/>
+                </VBox>
+                <VBox styleClass="input-group">
+                    <Label text="CONFIRM PASSWORD" />
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm your password"/>
+                </VBox>
+                </VBox>
+                <HBox alignment="center" spacing="20" >
+                    <Button text="CREATE ACCOUNT" styleClass="btn" onAction="#handleCreateAccount"/>
+                    <Button text="BACK TO LOGIN" styleClass="btn, secondary" onAction="#handleBackToLogin"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>
