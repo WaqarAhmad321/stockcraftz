@@ -32,17 +32,17 @@ public class StockCraftzApplication extends Application {
         this.primaryStage = stage;
         DBConnectionPool.initializeDB("jdbc:postgresql://ep-withered-voice-a5udta9w-pooler.us-east-2.aws.neon.tech/stockcraftzdb?user=stockcraftzdb_owner&password=npg_lau6ZiYgo7Gh&sslmode=require", "stockcraftzdb", "npg_lau6ZiYgo7Gh");
         stage.setTitle("StockCraftz");
-//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/images/")));
+//        stage.getIcons().add(new Image(getClass().getResourceAsStream("/com/bigsteppers/stockcraftz/images/stockcraftz-logo.png")));
         Font.loadFont(getClass().getResource("/com/bigsteppers/stockcraftz/fonts/VT323-Regular.ttf").toExternalForm(), 10);
 
         // Load all scenes
-        String[] pages = {"login", "register", "dashboard", "menu", "raw_materials", "crafted_items", "crafting", "leaderboard", "marketplace"};
+        String[] pages = {"login", "register", "dashboard", "menu", "raw_materials", "crafted_items", "crafting", "leaderboard", "marketplace", "resetPassword"};
         for (String page : pages) {
             loadScene(page, "/com/bigsteppers/stockcraftz/fxml/" + page + ".fxml");
         }
 
         // Show initial scene
-        showPage("raw_materials");
+        showPage("login");
         stage.show();
     }
 
@@ -61,7 +61,7 @@ public class StockCraftzApplication extends Application {
         controllers.put(name, loader.getController());
 
         scene.addPreLayoutPulseListener(() -> {
-            if (!SessionManager.isLoggedIn() && !name.equals("register") && !name.equals("login")) {
+            if (!SessionManager.isLoggedIn() && !name.equals("register") && !name.equals("login") && !name.equals("resetPassword")) {
                 FXUtils.navigateTo("login", scene.getRoot());
             }
         });

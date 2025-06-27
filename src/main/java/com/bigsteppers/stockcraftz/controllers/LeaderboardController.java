@@ -38,6 +38,7 @@ public class LeaderboardController implements LoadablePage {
     private TableColumn<LeaderboardUser, Integer> rankColumn;
     @FXML
     private TableColumn<LeaderboardUser, String> playerColumn;
+
     @FXML
     private TableColumn<LeaderboardUser, Double> portfolioColumn;
     @FXML
@@ -46,8 +47,6 @@ public class LeaderboardController implements LoadablePage {
     private HBox paginationBox;
     @FXML
     private Label percentileLabel;
-    @FXML
-    private Label weeklyChangeLabel;
     @FXML
     private Label nextRankLabel;
     @FXML
@@ -76,7 +75,6 @@ public class LeaderboardController implements LoadablePage {
     @Override
     public void onLoad() {
         if (!SessionManager.isLoggedIn()) {
-            System.err.println("LeaderboardController: No user logged in, redirecting to login");
             return;
         }
 
@@ -151,7 +149,6 @@ public class LeaderboardController implements LoadablePage {
 
         double percentile = ((double) (allUsers.size() - currentUser.rank()) / allUsers.size()) * 100;
         percentileLabel.setText(String.format("%.0f%%", percentile));
-        weeklyChangeLabel.setText("+0"); // Placeholder
 
         if (currentUser.rank() > 1) {
             LeaderboardUser nextUser = allUsers.get(currentUser.rank() - 2);

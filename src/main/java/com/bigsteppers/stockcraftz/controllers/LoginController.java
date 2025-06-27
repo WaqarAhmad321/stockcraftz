@@ -3,7 +3,6 @@ package com.bigsteppers.stockcraftz.controllers;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import com.bigsteppers.stockcraftz.model.SessionManager;
 import com.bigsteppers.stockcraftz.model.User;
-import com.bigsteppers.stockcraftz.model.UserRole;
 import com.bigsteppers.stockcraftz.utils.FXUtils;
 import com.dbfx.database.DBUtils;
 import javafx.fxml.FXML;
@@ -40,8 +39,7 @@ public class LoginController {
                         return new User(
                                 rs.getInt("id"),
                                 rs.getString("username"),
-                                rs.getDouble("balance"),
-                                UserRole.valueOf(rs.getString("role"))
+                                rs.getDouble("balance")
                         );
                     }
 
@@ -64,5 +62,11 @@ public class LoginController {
     @FXML
     private void navigateToRegister() {
         FXUtils.navigateTo("register", loginPage);
+    }
+
+    @FXML
+    private void navigateToResetPassword() {
+        FXUtils.navigateTo("resetPassword", loginPage);
+        System.out.println("navigate");
     }
 }

@@ -1,7 +1,7 @@
 package com.bigsteppers.stockcraftz.model;
 
 public class SessionManager {
-    private static User currentUser = new User(1, "testuser", 1000.0, UserRole.CRAFTER);
+    private static User currentUser;
 
     public static User getCurrentUser() {
         return currentUser;

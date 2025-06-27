@@ -12,7 +12,6 @@ import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
@@ -29,8 +28,6 @@ public class MarketplaceController implements LoadablePage {
     private final int itemsPerPage = 8; // 4x2 grid
     @FXML
     private Node marketplacePage;
-    @FXML
-    private TextField marketSearch;
     @FXML
     private Button allFilter;
     @FXML
@@ -52,26 +49,10 @@ public class MarketplaceController implements LoadablePage {
     @FXML
     private void initialize() {
         System.out.println("MarketplaceController: Initializing...");
-        checkFXMLComponents();
         if (navbarController != null) {
             navbarController.setActivePage("marketplace");
             navbarController.rootNode = marketplacePage;
         }
-        marketSearch.textProperty().addListener((obs, oldVal, newVal) -> {
-            System.out.println("MarketplaceController: Search query changed to: " + newVal);
-            // TODO: Implement search filtering
-        });
-    }
-
-    private void checkFXMLComponents() {
-        if (marketplacePage == null) System.err.println("MarketplaceController: marketplacePage is null");
-        if (marketSearch == null) System.err.println("MarketplaceController: marketSearch is null");
-        if (allFilter == null) System.err.println("MarketplaceController: allFilter is null");
-        if (rawMaterialsFilter == null) System.err.println("MarketplaceController: rawMaterialsFilter is null");
-        if (toolsFilter == null) System.err.println("MarketplaceController: toolsFilter is null");
-        if (inventoryGrid == null) System.err.println("MarketplaceController: inventoryGrid is null");
-        if (paginationBox == null) System.err.println("MarketplaceController: paginationBox is null");
-        if (navbarController == null) System.err.println("MarketplaceController: navbarController is null");
     }
 
     @Override
@@ -94,7 +75,7 @@ public class MarketplaceController implements LoadablePage {
 
     private void fetchMarketplaceItems() {
         System.out.println("MarketplaceController: Fetching marketplace items");
-        String sql = "SELECT id, item_name, item_type, price, image_url, seller_id FROM marketplace_items";
+        String sql = "SELECT id, item_name, item_type, price, seller_id FROM marketplace_items";
         DBUtils.executeQueryAsync(sql, stmt -> {
         }, rs -> {
             ArrayList<MarketplaceItem> items = new ArrayList<>();
@@ -105,7 +86,6 @@ public class MarketplaceController implements LoadablePage {
                             rs.getString("item_name"),
                             rs.getString("item_type"),
                             rs.getDouble("price"),
-                            rs.getString("image_url"),
                             rs.getInt("seller_id")
                     ));
                 }
@@ -174,7 +154,8 @@ public class MarketplaceController implements LoadablePage {
             icon.getStyleClass().add("item-icon");
             icon.setFitWidth(40);
             icon.setFitHeight(40);
-            String imagePath = "/com/bigsteppers/stockcraftz/images/crafted_items/" + Formater.toSnakeCase(item.itemName()) + ".png";
+            String toolPath = item.itemType().equals("TOOL") ? "crafted_items/" : "raw_materials/";
+            String imagePath = "/com/bigsteppers/stockcraftz/images/" + toolPath + Formater.toSnakeCase(item.itemName()) + ".png";
             java.io.InputStream is = getClass().getResourceAsStream(imagePath);
             if (is != null) {
                 icon.setImage(new Image(is));
@@ -293,13 +274,12 @@ public class MarketplaceController implements LoadablePage {
 
                 // Add item to inventory
                 if (item.itemType().equals("RAW_MATERIAL")) {
-                    String insertSql = "INSERT INTO raw_material_inventory (user_id, material_type, quantity, image_url) " +
-                            "VALUES (?, ?, 1, ?) ON DUPLICATE KEY UPDATE quantity = quantity + 1";
+                    String insertSql = "INSERT INTO raw_material_inventory (user_id, material_type, quantity) " +
+                            "VALUES (?, ?, 1) ON CONFLICT (user_id, material_type) DO UPDATE SET quantity = raw_material_inventory.quantity + 1";
                     DBUtils.executeUpdateAsync(insertSql, stmt -> {
                         try {
                             stmt.setInt(1, userId);
                             stmt.setString(2, item.itemName());
-                            stmt.setString(3, item.imageUrl());
                         } catch (SQLException e) {
                             throw new RuntimeException("Error inserting raw material", e);
                         }

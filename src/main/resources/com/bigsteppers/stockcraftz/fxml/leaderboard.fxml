@@ -24,10 +24,6 @@
                     <Label text="PERCENTILE" styleClass="stat-label"/>
                 </VBox>
                 <VBox styleClass="stat-box">
-                    <Label fx:id="weeklyChangeLabel" text="+5" styleClass="stat-value"/>
-                    <Label text="WEEKLY CHANGE" styleClass="stat-label"/>
-                </VBox>
-                <VBox styleClass="stat-box">
                     <Label fx:id="nextRankLabel" text="3,200" styleClass="stat-value"/>
                     <Label text="TO NEXT RANK" styleClass="stat-label"/>
                 </VBox>

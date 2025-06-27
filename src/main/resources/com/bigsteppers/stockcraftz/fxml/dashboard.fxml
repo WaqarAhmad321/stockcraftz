@@ -23,7 +23,7 @@
                     <Label styleClass="stat-label" text="CRAFTED ITEMS"/>
                 </VBox>
                 <VBox styleClass="stat-box">
-                    <Label fx:id="rankLabel" styleClass="stat-value" text="#42"/>
+                    <Label fx:id="rankLabel" styleClass="stat-value" text="#2"/>
                     <Label styleClass="stat-label" text="RANK"/>
                 </VBox>
             </HBox>
@@ -43,7 +43,7 @@
                     <TableView fx:id="activityTable" styleClass="leaderboard-table">
                         <columns>
                             <TableColumn fx:id="actionColumn" prefWidth="147.0" text="ACTION"/>
-                            <TableColumn fx:id="itemColumn" prefWidth="148.0" text="ITEM"/>
+                            <TableColumn fx:id="itemColumn" prefWidth="151.0" text="ITEM"/>
                             <TableColumn fx:id="amountColumn" prefWidth="198.0" text="AMOUNT"/>
                             <TableColumn fx:id="timeColumn" prefWidth="250.0" text="TIME"/>
                         </columns>

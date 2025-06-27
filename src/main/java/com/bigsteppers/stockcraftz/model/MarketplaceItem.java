@@ -5,7 +5,6 @@ public record MarketplaceItem(
         String itemName,
         String itemType,
         double price,
-        String imageUrl,
         int sellerId
 ) {
 }

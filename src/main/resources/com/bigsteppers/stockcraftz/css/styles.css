@@ -627,13 +627,16 @@
 }
 
 .leaderboard-table .table-row-cell:even {
-    -fx-background-color: #262626;
-    -fx-text-fill: red;
+    -fx-background-color: #ffdd00;
+    -fx-font-size: 20px;
+    -fx-min-height: 40px;
+
 }
 
 .leaderboard-table .table-row-cell:odd {
-    -fx-background-color: #1A1A1A;
-    -fx-text-fill: red;
+    -fx-background-color: #ffdd00;
+    -fx-font-size: 20px;
+    -fx-min-height: 40px;
 }
 
 .table-view .table-row-cell {
@@ -642,7 +645,7 @@
 
 
 .leaderboard-table .table-row-cell:hover {
-    -fx-background-color: rgba(255, 221, 0, 0.1);
+    -fx-background-color: #ffdd00;
 }
 
 /* Marketplace Filters */

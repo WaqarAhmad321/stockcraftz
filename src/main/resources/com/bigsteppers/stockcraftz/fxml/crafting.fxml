@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <BorderPane xmlns:fx="http://javafx.com/fxml/1" fx:id="craftingPage" styleClass="page, active"
             xmlns="http://javafx.com/javafx/21"
@@ -19,7 +20,7 @@
                     <Label text="→" styleClass="crafting-arrow"/>
                     <Pane fx:id="resultSlot" styleClass="result-slot">
                         <Label text="Result" styleClass="result-label" layoutX="-30" layoutY="-25"/>
-                        <!--                        <ImageView fx:id="resultIcon" fitWidth="60" fitHeight="60"/>-->
+                        <ImageView fx:id="resultIcon" fitWidth="60" fitHeight="60"/>
                     </Pane>
                 </HBox>
                 <HBox styleClass="crafting-actions" spacing="20">
@@ -33,33 +34,38 @@
                     <Label text="Use the correct combination of raw materials to craft powerful tools and weapons. Each recipe must be followed exactly. Drag the required items into the crafting area and click 'Craft' to create the item."
                            styleClass="info-text" wrapText="true"/>
 
-
                     <HBox spacing="40">
                         <!-- Left Column -->
                         <VBox styleClass="recipe-list" spacing="5">
-                            <Label text="• IRON_ORE + COAL = STEEL_AXE" styleClass="recipe-item"/>
-                            <Label text="• IRON_ORE + COAL + COPPER_INGOT = IRON_PICKAXE" styleClass="recipe-item"/>
-                            <Label text="• WOOD + COAL = WOODEN_SHOVEL" styleClass="recipe-item"/>
-                            <Label text="• DIAMOND + IRON_ORE = DIAMOND_SWORD" styleClass="recipe-item"/>
-                            <Label text="• STICK + COAL = TORCH" styleClass="recipe-item"/>
-                            <Label text="• GOLD_ORE + COAL = GOLD_INGOT" styleClass="recipe-item"/>
-                            <Label text="• SAND + CLAY = BRICK_BLOCK" styleClass="recipe-item"/>
-                            <Label text="• COBBLESTONE + COAL = STONE_BRICK" styleClass="recipe-item"/>
+                            <Label text="• 3x Wood + 3x Wool = Bed" styleClass="recipe-item"/>
+                            <Label text="• 1x Fire + 1x Sand = Glass" styleClass="recipe-item"/>
+                            <Label text="• 2x Stick + 3x Stone = Stone Pickaxe" styleClass="recipe-item"/>
+                            <Label text="• 2x Stick + 1x Stone = Stone Shovel" styleClass="recipe-item"/>
+                            <Label text="• 1x Stick + 1x Stone = Stone Arrow" styleClass="recipe-item"/>
+                            <Label text="• 3x Wood + 2x Stick = Wooden Pickaxe" styleClass="recipe-item"/>
+                            <Label text="• 3x Wood + 2x Stick = Wooden Axe" styleClass="recipe-item"/>
+                            <Label text="• 2x Wood + 1x Stick = Wooden Crowbar" styleClass="recipe-item"/>
+                            <Label text="• 8x Gold + 1x Carrot = Gold Carrot" styleClass="recipe-item"/>
+                            <Label text="• 1x Fire + 1x Mushroom = Mushroom Stew" styleClass="recipe-item"/>
                         </VBox>
 
                         <!-- Right Column -->
                         <VBox styleClass="recipe-list" spacing="5">
-                            <Label text="• FEATHER + STICK + INK_SAC = WRITING_QUILL" styleClass="recipe-item"/>
-                            <Label text="• LEATHER + IRON_INGOT = ARMOR_PLATE" styleClass="recipe-item"/>
-                            <Label text="• WOOD + IRON_INGOT = SHIELD" styleClass="recipe-item"/>
-                            <Label text="• WOOD + STRING = BOW" styleClass="recipe-item"/>
-                            <Label text="• FLINT + STICK + FEATHER = ARROW" styleClass="recipe-item"/>
-                            <Label text="• GLASS + REDSTONE = LENS" styleClass="recipe-item"/>
-                            <Label text="• OBSIDIAN + DIAMOND = PORTAL_CORE" styleClass="recipe-item"/>
-                            <Label text="• COAL + IRON_ORE + REDSTONE = POWER_CORE" styleClass="recipe-item"/>
+                            <Label text="• 2x Stick + 3x Diamond = Diamond Axe" styleClass="recipe-item"/>
+                            <Label text="• 2x Stick + 1x Diamond = Diamond Shovel" styleClass="recipe-item"/>
+                            <Label text="• 3x Gold + 2x Stick = Golden Pickaxe" styleClass="recipe-item"/>
+                            <Label text="• 2x Iron + 1x Stick = Iron Sword" styleClass="recipe-item"/>
+                            <Label text="• 1x Fire + 1x Sword = Lava Sword" styleClass="recipe-item"/>
+                            <Label text="• 1x Fire + 3x Gold = Gold Crown" styleClass="recipe-item"/>
+                            <Label text="• 2x Fire + 1x Armor = Lava Armor" styleClass="recipe-item"/>
+                            <Label text="• 3x Stone + 1x Potion = Dragon Stones" styleClass="recipe-item"/>
+                            <Label text="• 1x Egg + 1x Potion = Easter Egg" styleClass="recipe-item"/>
+                            <Label text="• 2x Wood + 1x Stick + 1x Potion = Unicorn Pickaxe" styleClass="recipe-item"/>
+                            <Label text="• 8x Gold + 1x Apple = Gold Apple" styleClass="recipe-item"/>
                         </VBox>
                     </HBox>
                 </VBox>
+
 
                 <VBox styleClass="inventory-container" spacing="10">
                     <Label text="RAW MATERIALS" styleClass="inventory-title"/>
