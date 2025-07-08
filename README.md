@@ -21,7 +21,6 @@ StockCraftz is a JavaFX-based inventory management application designed for craf
 - Database-driven operations using asynchronous queries.
 
 ## Screenshots
-*(Add screenshots of the application UI here once available. For now, placeholders are provided.)*
 - **Login Page**: ![Register Page](https://github.com/user-attachments/assets/b14a977b-c6fc-4ee6-b8cc-b84cb41418d7)
 - **Register Page**: ![Register Page](https://github.com/user-attachments/assets/94b208c1-ef69-4276-b715-0f9173330fe4)
 - **Menu Page**: ![Menu Page](https://github.com/user-attachments/assets/d6cc059c-7813-4b7e-84bd-1f6c394ddeb6)
