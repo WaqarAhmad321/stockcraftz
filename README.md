@@ -1,5 +1,3 @@
-![image](https://github.com/user-attachments/assets/f2cd7a2f-77de-4dfb-adf9-f4e85993d186)# StockCraftz
-
 **Welcome to StockCraftz!**  
 StockCraftz is a JavaFX-based inventory management application designed for crafting and trading virtual items. Users can register, manage raw materials and crafted items, sell items on a marketplace, and reset their passwords. The application leverages a database backend and follows Object-Oriented Programming (OOP) principles for a robust and extensible design.
 
