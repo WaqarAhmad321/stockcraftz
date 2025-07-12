@@ -39,7 +39,7 @@ StockCraftz is a JavaFX-based inventory management application designed for craf
 ### Steps
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/stockcraftz.git
+   git clone https://github.com/WaqarAhmad321/stockcraftz.git
    cd stockcraftz
    ```
 
