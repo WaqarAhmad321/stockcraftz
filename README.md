@@ -102,5 +102,4 @@ Please ensure your code follows the existing style.
 
 ## Contact
 - **Author**: Waqar Ahmad
-- **Email**: your.email@example.com
 - **GitHub**: [https://github.com/WaqarAhmad321](https://github.com/WaqarAhmad321)
