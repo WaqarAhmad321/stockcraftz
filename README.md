@@ -26,6 +26,7 @@ StockCraftz is a JavaFX-based inventory management application designed for craf
 - **Menu Page**: ![Menu Page](https://github.com/user-attachments/assets/d6cc059c-7813-4b7e-84bd-1f6c394ddeb6)
 - **Dashboard Page**: ![Dashboard Page](https://github.com/user-attachments/assets/3880b26b-be6a-4e4e-9854-ac2e2db219c4)
 - **Raw Materials Page**: ![Raw Materials Page](https://github.com/user-attachments/assets/17e28b43-4867-4ad8-b648-c4edbddc37da)
+- **Crafting Page**: ![Crafting Page](https://github.com/user-attachments/assets/d6d9cdd2-c4ec-4ac0-8ab4-05bc6333eb14)
 - **Crafted Items Page**: ![Crafted Items Page](https://github.com/user-attachments/assets/4d47daa2-6832-48d3-a826-fc920de806d9)
 - **Leaderboard Page**: ![Crafted Items Page](https://github.com/user-attachments/assets/a286f62b-8906-4c14-86cd-1c5acd200db2)
 - **Marketplace Page**: ![Marketplace Page](https://github.com/user-attachments/assets/188e5b4d-8fea-470f-bf1e-13625bf846a0)
